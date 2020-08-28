@@ -1,11 +1,10 @@
 import React from 'react';
+import EmployeeDirectory from './components/EmployeeDirectory';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Hello!</p>
-      </header>
+      <EmployeeDirectory />
     </div>
   );
 }
