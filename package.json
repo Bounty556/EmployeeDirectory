@@ -2,8 +2,11 @@
   "name": "employeedirectory",
   "version": "1.0.0",
   "description": "## Overview",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start"
   },
@@ -16,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/Bounty556/EmployeeDirectory/issues"
   },
-  "homepage": "https://github.com/Bounty556/EmployeeDirectory#readme"
+  "homepage": "https://github.com/Bounty556/EmployeeDirectory#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.10.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  }
 }

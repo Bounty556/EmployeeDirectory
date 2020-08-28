@@ -10,11 +10,6 @@ function EmployeeDirectory() {
   const [allEmployees, setAllEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
 
-  const addEmployee = employee => {
-    setAllEmployees(prevState => [...prevState, employee]);
-    // TODO: Make call to database
-  };
-
   useEffect(() => {
     const filterEmployees = array => {
       if (filters.name) {
@@ -63,6 +58,11 @@ function EmployeeDirectory() {
     setFilteredEmployees(copy);
   }, [allEmployees, sortMethod, filters]);
 
+  const addEmployee = employee => {
+    setAllEmployees(prevState => [...prevState, employee]);
+    // TODO: Make call to database
+  };
+  
   return (
     <div>
       <h2>Employee Directory</h2>
