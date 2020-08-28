@@ -27,6 +27,11 @@ function EmployeeDirectory() {
     }
   ]);
 
+  const addEmployee = employee => {
+    setEmployees(prevState => [...prevState, employee]);
+    // TODO: Make call to database
+  };
+
   return (
     <div>
       <h2>Employee Directory</h2>
@@ -34,7 +39,7 @@ function EmployeeDirectory() {
         You can add a new employee to the employee directory below. Then, use the filters below and
         sort the columns to see information about specific employees.
       </p>
-      <AddEmployee />
+      <AddEmployee addEmployee={addEmployee} />
       <Filters />
       <EmployeeList employees={employees} setSortMethod={setSortMethod} />
     </div>

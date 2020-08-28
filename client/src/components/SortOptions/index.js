@@ -20,25 +20,25 @@ function SortOptions(props) {
       <p>
         Name{' '}
         <button id='nameSort' onClick={() => sortBy('name')}>
-          {sortDirections.name > 0 ? '^' : 'V'}
+          {sortDirections.name > 0 ? '^' : 'v'}
         </button>
       </p>
       <p>
         Occupation{' '}
         <button id='occupationSort' onClick={() => sortBy('occupation')}>
-          {sortDirections.occupation > 0 ? '^' : 'V'}
+          {sortDirections.occupation > 0 ? '^' : 'v'}
         </button>
       </p>
       <p>
         Department{' '}
         <button id='departmentSort' onClick={() => sortBy('department')}>
-          {sortDirections.department > 0 ? '^' : 'V'}
+          {sortDirections.department > 0 ? '^' : 'v'}
         </button>
       </p>
       <p>
         Salary{' '}
         <button id='salarySort' onClick={() => sortBy('salary')}>
-          {sortDirections.salary > 0 ? '^' : 'V'}
+          {sortDirections.salary > 0 ? '^' : 'v'}
         </button>
       </p>
     </div>
