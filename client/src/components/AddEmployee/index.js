@@ -4,16 +4,16 @@ function AddEmployee() {
   return (
     <div>
       <form>
-        <label for='addEmployeeName'>Name:</label>
+        <label htmlFor='addEmployeeName'>Name:</label>
         <input type='text' id='addEmployeeName' placeholder='Susan Bog' />
 
-        <label for='addEmployeeOccupation'>Occupation:</label>
+        <label htmlFor='addEmployeeOccupation'>Occupation:</label>
         <input type='text' id='addEmployeeOccupation' placeholder='Sales Manager' />
         
-        <label for='addEmployeeDepartment'>Department:</label>
+        <label htmlFor='addEmployeeDepartment'>Department:</label>
         <input type='text' id='addEmployeeDepartment' placeholder='Sales' />
 
-        <label for='addEmployeeSalary'>Salary:</label>
+        <label htmlFor='addEmployeeSalary'>Salary:</label>
         <input type='number' id='addEmployeeSalary' placeholder='120000' />
 
         <input type='submit' value='Add Employee' />

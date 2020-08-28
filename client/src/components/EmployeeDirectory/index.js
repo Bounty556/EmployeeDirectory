@@ -5,7 +5,7 @@ import Filters from '../Filters';
 import EmployeeList from '../EmployeeList';
 
 function EmployeeDirectory() {
-  const [sortMethod, setSortMethod] = useState({ sortBy: 'Name', direction: 1 });
+  const [sortMethod, setSortMethod] = useState({ sortBy: 'name', direction: 1 });
   const [employees, setEmployees] = useState([
     {
       name: 'Bob Truply',

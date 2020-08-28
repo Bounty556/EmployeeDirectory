@@ -7,8 +7,8 @@ function EmployeeList(props) {
   return (
     <div>
       <SortOptions setSortMethod={props.setSortMethod} />
-      {props.employees.map(employee => (
-        <EmployeeEntry {...employee} />
+      {props.employees.map((employee, i) => (
+        <EmployeeEntry {...employee} key={i} />
       ))}
     </div>
   );
