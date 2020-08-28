@@ -4,7 +4,6 @@ function AddEmployee() {
   return (
     <div>
       <form>
-
         <label for='addEmployeeName'>Name:</label>
         <input type='text' id='addEmployeeName' placeholder='Susan Bog' />
 
