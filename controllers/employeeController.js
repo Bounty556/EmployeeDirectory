@@ -1,5 +1,4 @@
 const db = require('../models');
-const { rejects } = require('assert');
 
 module.exports = {
   getEmployees: (req, res) => {

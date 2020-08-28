@@ -4,11 +4,20 @@ import AddEmployee from '../AddEmployee';
 import Filters from '../Filters';
 import EmployeeList from '../EmployeeList';
 
+import axios from 'axios';
+
 function EmployeeDirectory() {
   const [sortMethod, setSortMethod] = useState({ sortBy: 'name', direction: 1 });
   const [filters, setFilters] = useState({});
   const [allEmployees, setAllEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
+
+  // Initially start the employee list with what ever is in the database
+  useEffect(() => {
+    axios.get('/api/employees').then(response => {
+      setAllEmployees(response.data);
+    });
+  }, []);
 
   useEffect(() => {
     const filterEmployees = array => {
@@ -60,9 +69,10 @@ function EmployeeDirectory() {
 
   const addEmployee = employee => {
     setAllEmployees(prevState => [...prevState, employee]);
-    // TODO: Make call to database
+
+    axios.put('/api/addEmployee', employee);
   };
-  
+
   return (
     <div>
       <h2>Employee Directory</h2>
