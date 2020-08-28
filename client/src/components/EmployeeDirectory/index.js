@@ -6,18 +6,60 @@ import EmployeeList from '../EmployeeList';
 
 function EmployeeDirectory() {
   const [sortMethod, setSortMethod] = useState({ sortBy: 'name', direction: 1 });
-  const [filters, setFilters] = useState(null);
-  const [employees, setEmployees] = useState([]);
+  const [filters, setFilters] = useState({});
+  const [allEmployees, setAllEmployees] = useState([]);
+  const [filteredEmployees, setFilteredEmployees] = useState([]);
 
   const addEmployee = employee => {
-    setEmployees(prevState => [...prevState, employee]);
+    setAllEmployees(prevState => [...prevState, employee]);
     // TODO: Make call to database
   };
 
   useEffect(() => {
-    // TODO: Filter employees array
+    filterAndSortEmployees();
+  }, [allEmployees, sortMethod, filters]);
+
+  const filterAndSortEmployees = () => {
+    let filtered = filterEmployees(allEmployees);
+    filtered = sortEmployees(filtered);
+    setFilteredEmployees(filtered);
+  };
+
+  const filterEmployees = array => {
+    if (array.length === 0) {
+      return [];
+    }
+
+    let copy = array.map(el => ({ ...el }));
+    if (filters.name) {
+      copy = copy.filter(el => el.name.toLowerCase().includes(filters.name));
+    }
+    if (filters.occupation) {
+      copy = copy.filter(el => el.occupation.toLowerCase().includes(filters.occupation));
+    }
+    if (filters.department) {
+      copy = copy.filter(el => el.department.toLowerCase().includes(filters.department));
+    }
+
+    if (filters.salary) {
+      if (filters.isGreater) {
+        copy = copy.filter(el => el.salary >= filters.salary);
+      } else {
+        copy = copy.filter(el => el.salary <= filters.salary);
+      }
+    }
+
+    return copy;
+  };
+
+  const sortEmployees = array => {
+    if (array.length === 0) {
+      return [];
+    }
     // TODO: Sort employees array
-  }, [sortMethod, filters]);
+
+    return array;
+  };
 
   return (
     <div>
@@ -28,7 +70,7 @@ function EmployeeDirectory() {
       </p>
       <AddEmployee addEmployee={addEmployee} />
       <Filters setFilters={setFilters} />
-      <EmployeeList employees={employees} setSortMethod={setSortMethod} />
+      <EmployeeList employees={filteredEmployees} setSortMethod={setSortMethod} />
     </div>
   );
 }
