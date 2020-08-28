@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import AddEmployee from '../AddEmployee';
 import Filters from '../Filters';
@@ -6,31 +6,18 @@ import EmployeeList from '../EmployeeList';
 
 function EmployeeDirectory() {
   const [sortMethod, setSortMethod] = useState({ sortBy: 'name', direction: 1 });
-  const [employees, setEmployees] = useState([
-    {
-      name: 'Bob Truply',
-      occupation: 'Senior React Developer',
-      department: 'Engineering',
-      salary: 150000
-    },
-    {
-      name: 'Kirk Werther',
-      occupation: 'Senior React Developer',
-      department: 'Engineering',
-      salary: 150000
-    },
-    {
-      name: 'Bob Truply',
-      occupation: 'Senior React Developer',
-      department: 'Engineering',
-      salary: 150000
-    }
-  ]);
+  const [filters, setFilters] = useState(null);
+  const [employees, setEmployees] = useState([]);
 
   const addEmployee = employee => {
     setEmployees(prevState => [...prevState, employee]);
     // TODO: Make call to database
   };
+
+  useEffect(() => {
+    // TODO: Filter employees array
+    // TODO: Sort employees array
+  }, [sortMethod, filters]);
 
   return (
     <div>
@@ -40,7 +27,7 @@ function EmployeeDirectory() {
         sort the columns to see information about specific employees.
       </p>
       <AddEmployee addEmployee={addEmployee} />
-      <Filters />
+      <Filters setFilters={setFilters} />
       <EmployeeList employees={employees} setSortMethod={setSortMethod} />
     </div>
   );

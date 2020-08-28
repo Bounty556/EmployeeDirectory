@@ -36,7 +36,7 @@ function AddEmployee(props) {
     }
 
     return words.join(' ');
-  }
+  };
 
   return (
     <div>
