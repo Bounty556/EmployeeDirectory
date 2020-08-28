@@ -1,12 +1,14 @@
 import React from 'react';
 
-function EmployeeEntry() {
-  return (<div>
-    <p>Name: name</p>
-    <p>Occupation: occupation</p>
-    <p>Department: department</p>
-    <p>Salary: $100,000</p>
-  </div>)
-};
+function EmployeeEntry(props) {
+  return (
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Occupation: {props.occupation}</p>
+      <p>Department: {props.department}</p>
+      <p>Salary: {props.salary}</p>
+    </div>
+  );
+}
 
 export default EmployeeEntry;

@@ -1,7 +1,17 @@
 import React from 'react';
 
-function EmployeeList() {
-  return <div>Employee List</div>;
+import EmployeeEntry from '../EmployeeEntry';
+import SortOptions from '../SortOptions';
+
+function EmployeeList(props) {
+  return (
+    <div>
+      <SortOptions setSortMethod={props.setSortMethod} />
+      {props.employees.map(employee => (
+        <EmployeeEntry {...employee} />
+      ))}
+    </div>
+  );
 }
 
 export default EmployeeList;
