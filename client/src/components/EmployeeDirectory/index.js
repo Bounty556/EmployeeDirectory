@@ -16,50 +16,52 @@ function EmployeeDirectory() {
   };
 
   useEffect(() => {
-    filterAndSortEmployees();
-  }, [allEmployees, sortMethod, filters]);
-
-  const filterAndSortEmployees = () => {
-    let filtered = filterEmployees(allEmployees);
-    filtered = sortEmployees(filtered);
-    setFilteredEmployees(filtered);
-  };
-
-  const filterEmployees = array => {
-    if (array.length === 0) {
-      return [];
-    }
-
-    let copy = array.map(el => ({ ...el }));
-    if (filters.name) {
-      copy = copy.filter(el => el.name.toLowerCase().includes(filters.name));
-    }
-    if (filters.occupation) {
-      copy = copy.filter(el => el.occupation.toLowerCase().includes(filters.occupation));
-    }
-    if (filters.department) {
-      copy = copy.filter(el => el.department.toLowerCase().includes(filters.department));
-    }
-
-    if (filters.salary) {
-      if (filters.isGreater) {
-        copy = copy.filter(el => el.salary >= filters.salary);
-      } else {
-        copy = copy.filter(el => el.salary <= filters.salary);
+    const filterEmployees = array => {
+      if (filters.name) {
+        array = array.filter(el => el.name.toLowerCase().includes(filters.name));
       }
-    }
+      if (filters.occupation) {
+        array = array.filter(el => el.occupation.toLowerCase().includes(filters.occupation));
+      }
+      if (filters.department) {
+        array = array.filter(el => el.department.toLowerCase().includes(filters.department));
+      }
 
-    return copy;
-  };
+      if (filters.salary) {
+        if (filters.isGreater) {
+          array = array.filter(el => el.salary >= filters.salary);
+        } else {
+          array = array.filter(el => el.salary <= filters.salary);
+        }
+      }
 
-  const sortEmployees = array => {
-    if (array.length === 0) {
-      return [];
-    }
-    // TODO: Sort employees array
+      return array;
+    };
 
-    return array;
-  };
+    const sortEmployees = array => {
+      if (sortMethod.sortBy === 'salary') {
+        array.sort(
+          (employee1, employee2) => (employee1.salary - employee2.salary) * sortMethod.direction
+        );
+      } else {
+        array.sort((employee1, employee2) => {
+          if (employee1[sortMethod.sortBy] > employee2[sortMethod.sortBy]) {
+            return -sortMethod.direction;
+          } else if (employee1[sortMethod.sortBy] < employee2[sortMethod.sortBy]) {
+            return sortMethod.direction;
+          }
+          return 0;
+        });
+      }
+
+      return array;
+    };
+
+    let copy = allEmployees.map(el => ({ ...el }));
+    copy = filterEmployees(copy);
+    copy = sortEmployees(copy);
+    setFilteredEmployees(copy);
+  }, [allEmployees, sortMethod, filters]);
 
   return (
     <div>
