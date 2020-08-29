@@ -4,10 +4,12 @@ import AddEmployee from '../AddEmployee';
 import Filters from '../Filters';
 import EmployeeList from '../EmployeeList';
 
+import './employeeDirectory.css';
+
 import axios from 'axios';
 
 function EmployeeDirectory() {
-  const [sortMethod, setSortMethod] = useState({ sortBy: 'name', direction: 1 });
+  const [sortMethod, setSortMethod] = useState({ sortBy: 'name', direction: -1 });
   const [filters, setFilters] = useState({});
   const [allEmployees, setAllEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
@@ -75,14 +77,19 @@ function EmployeeDirectory() {
 
   return (
     <div>
-      <h2>Employee Directory</h2>
-      <p>
-        You can add a new employee to the employee directory below. Then, use the filters below and
-        sort the columns to see information about specific employees.
-      </p>
-      <AddEmployee addEmployee={addEmployee} />
-      <Filters setFilters={setFilters} />
-      <EmployeeList employees={filteredEmployees} setSortMethod={setSortMethod} />
+      <header>
+        <h2>Employee Directory</h2>
+        <p>
+          You can add a new employee to the employee directory below. Then, use the filters and sort
+          the columns to see information about specific employees.
+        </p>
+      </header>
+      <br /> <br />
+      <div className='container'>
+        <AddEmployee addEmployee={addEmployee} />
+        <Filters setFilters={setFilters} />
+        <EmployeeList employees={filteredEmployees} setSortMethod={setSortMethod} />
+      </div>
     </div>
   );
 }
