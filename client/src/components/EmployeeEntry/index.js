@@ -1,12 +1,17 @@
 import React from 'react';
+import Column from '../Column';
+import Row from '../Row';
+
+import './employeeEntry.css';
 
 function EmployeeEntry(props) {
   return (
-    <div>
-      <p>
-        {props.name} {props.occupation} {props.department} {props.salary}
-      </p>
-    </div>
+    <Row className={props.row}>
+      <Column width='3'>{props.name}</Column>
+      <Column width='3'>{props.occupation}</Column>
+      <Column width='3'>{props.department}</Column>
+      <Column width='3'>{props.salary}</Column>
+    </Row>
   );
 }
 

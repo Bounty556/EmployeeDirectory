@@ -1,0 +1,9 @@
+.even {
+  background-color: gainsboro;
+  height: 45px;
+}
+
+.odd {
+  background-color: whitesmoke;
+  height: 45px;
+}
