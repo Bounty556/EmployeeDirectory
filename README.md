@@ -1,53 +1,45 @@
-# Unit 19 React Homework: Employee Directory
+![Language](https://img.shields.io/badge/language-javascript-blue) ![LastCommit](https://img.shields.io/github/last-commit/Bounty556/EmployeeDirectory?style=flat-square) ![CommitActivity](https://img.shields.io/github/commit-activity/m/Bounty556/EmployeeDirectory)
 
-## Overview
+# Employee Directory
 
-For this assignment, you'll create a employee directory with React. This assignment will require you to break up your application's UI into components, manage component state, and respond to user events.
+## Description
+A simple React app you can use to keep track of employee information easily. You can add new employees and sort and/or filter them using the options just above the employee list.
 
-## User Story
+## Table of Contents
+- [Usage](#usage)
+- [License](#license)
+- [Questions](#questions)
 
-* As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+## Usage
+Employees can be added via the 'Add Employee' form at the top of the page. All fields must be filled out in order for the employee to be added into the database.
 
-## Business Context
+Employees can then be filtered by any of their fields, including multiple fields at once. Note how on the salary field, one of the greater than or less than radio buttons must be checked, so it knows in what direction employee salaries must be filtered by.
 
-An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
+Finally, you can sort the employees by any of their fields using the up and down arrows next to each of the columns. Click an arrow multiple times to change which direction it should sort that field by.
 
-## Acceptance Criteria
+## License
+MIT License
 
-Given a table of random users, when the user loads the page, a table of employees should render. 
+Copyright (c) 2020 Jacob Peterson
 
-The user should be able to:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-  * Sort the table by at least one category
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-  * Filter the users by at least one property.
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
-
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
-
-Follow these guidelines for committing:
-
-* Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
-
-* Don't commit half done work, for the sake of your collaborators (and your future self!)
-
-* Test your application before you commit to ensure functionality at every step in the development process
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
-## Submission on BCS
-
-You are required to submit the following:
-
-* the URL to the deployed application
-
-* the URL to the Github repository
-
+## Questions
+Inquiries? Send them to: Jacobmayday@gmail.com ![Github](https://avatars1.githubusercontent.com/u/12930451?v=4&s=32)
