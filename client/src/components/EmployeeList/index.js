@@ -7,6 +7,7 @@ function EmployeeList(props) {
   return (
     <div>
       <SortOptions setSortMethod={props.setSortMethod} />
+      <hr />
       {props.employees.map((employee, i) => (
         <EmployeeEntry {...employee} key={i} />
       ))}
