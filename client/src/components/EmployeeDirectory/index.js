@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AddEmployee from '../AddEmployee';
 import Filters from '../Filters';
 import EmployeeList from '../EmployeeList';
+import Container from '../Container';
 
 import './employeeDirectory.css';
 
@@ -85,11 +86,13 @@ function EmployeeDirectory() {
         </p>
       </header>
       <br /> <br />
-      <div className='container'>
+      <Container>
         <AddEmployee addEmployee={addEmployee} />
+        <hr />
         <Filters setFilters={setFilters} />
+        <hr />
         <EmployeeList employees={filteredEmployees} setSortMethod={setSortMethod} />
-      </div>
+      </Container>
     </div>
   );
 }

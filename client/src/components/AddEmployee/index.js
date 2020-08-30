@@ -1,5 +1,10 @@
 import React, { useRef } from 'react';
 
+import Column from '../Column';
+import Row from '../Row';
+
+import './addEmployee.css';
+
 function AddEmployee(props) {
   const employeeName = useRef(null);
   const employeeOccupation = useRef(null);
@@ -27,7 +32,7 @@ function AddEmployee(props) {
   };
 
   // Capitalize the first letter of every word in the string
-  const capitalize = (string) => {
+  const capitalize = string => {
     const words = string.split(' ');
 
     for (let i = 0; i < words.length; i++) {
@@ -39,33 +44,45 @@ function AddEmployee(props) {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor='addEmployeeName'>Name:</label>
-        <input type='text' ref={employeeName} id='addEmployeeName' placeholder='Susan Bog' />
+    <form>
+      <Row>
+        <Column>
+          <label htmlFor='addEmployeeName'>Name:</label>
+          <input type='text' ref={employeeName} id='addEmployeeName' placeholder='Susan Bog' />
+        </Column>
 
-        <label htmlFor='addEmployeeOccupation'>Occupation:</label>
-        <input
-          type='text'
-          ref={employeeOccupation}
-          id='addEmployeeOccupation'
-          placeholder='Sales Manager'
-        />
+        <Column>
+          <label htmlFor='addEmployeeOccupation'>Occupation:</label>
+          <input
+            type='text'
+            ref={employeeOccupation}
+            id='addEmployeeOccupation'
+            placeholder='Sales Manager'
+          />
+        </Column>
 
-        <label htmlFor='addEmployeeDepartment'>Department:</label>
-        <input
-          type='text'
-          ref={employeeDepartment}
-          id='addEmployeeDepartment'
-          placeholder='Sales'
-        />
+        <Column>
+          <label htmlFor='addEmployeeDepartment'>Department:</label>
+          <input
+            type='text'
+            ref={employeeDepartment}
+            id='addEmployeeDepartment'
+            placeholder='Sales'
+          />
+        </Column>
 
-        <label htmlFor='addEmployeeSalary'>Salary:</label>
-        <input type='number' ref={employeeSalary} id='addEmployeeSalary' placeholder='120000' />
+        <Column>
+          <label htmlFor='addEmployeeSalary'>Salary:</label>
+          <input type='number' ref={employeeSalary} id='addEmployeeSalary' placeholder='120000' />
+        </Column>
 
-        <input type='submit' onClick={submitEmployee} value='Add Employee' />
-      </form>
-    </div>
+        <Column>
+          <button type='submit' onClick={submitEmployee} className='btn-sm btn-primary'>
+            Add Employee
+          </button>
+        </Column>
+      </Row>
+    </form>
   );
 }
 
