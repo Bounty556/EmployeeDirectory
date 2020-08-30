@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 
+import Column from '../Column';
+import Row from '../Row';
+
 function Filters(props) {
   const employeeName = useRef(null);
   const employeeOccupation = useRef(null);
@@ -28,45 +31,62 @@ function Filters(props) {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor='filterEmployeeName'>Name:</label>
-        <input type='text' ref={employeeName} id='filterEmployeeName' placeholder='Susan Bog' />
+    <form>
+      <Row>
+        <Column>
+          <label htmlFor='filterEmployeeName'>Name:</label>
+          <input type='text' ref={employeeName} id='filterEmployeeName' placeholder='Susan Bog' />
+        </Column>
 
-        <label htmlFor='filterEmployeeOccupation'>Occupation:</label>
-        <input
-          type='text'
-          ref={employeeOccupation}
-          id='filterEmployeeOccupation'
-          placeholder='Sales Manager'
-        />
+        <Column>
+          <label htmlFor='filterEmployeeOccupation'>Occupation:</label>
+          <input
+            type='text'
+            ref={employeeOccupation}
+            id='filterEmployeeOccupation'
+            placeholder='Sales Manager'
+          />
+        </Column>
 
-        <label htmlFor='filterEmployeeDepartment'>Department:</label>
-        <input
-          type='text'
-          ref={employeeDepartment}
-          id='filterEmployeeDepartment'
-          placeholder='Sales'
-        />
+        <Column>
+          <label htmlFor='filterEmployeeDepartment'>Department:</label>
+          <input
+            type='text'
+            ref={employeeDepartment}
+            id='filterEmployeeDepartment'
+            placeholder='Sales'
+          />
+        </Column>
 
-        <label htmlFor='greaterThan'>&gt;=</label>
-        <input
-          type='radio'
-          ref={salaryGreater}
-          id='greaterThan'
-          name='filterSalaryOption'
-          defaultChecked={true}
-        />
+        <Column>
+          <label htmlFor='filterEmployeeSalary'>Salary: &nbsp;</label>
+          <label htmlFor='greaterThan'>&gt;=</label>
+          <input
+            type='radio'
+            ref={salaryGreater}
+            id='greaterThan'
+            name='filterSalaryOption'
+            defaultChecked={true}
+          />
 
-        <label htmlFor='lessThan'>&lt;=</label>
-        <input type='radio' id='lessThan' name='filterSalaryOption' />
+          <label htmlFor='lessThan'>&lt;=</label>
+          <input type='radio' id='lessThan' name='filterSalaryOption' />
 
-        <label htmlFor='filterEmployeeSalary'>Salary:</label>
-        <input type='number' ref={employeeSalary} id='filterEmployeeSalary' placeholder='120000' />
+          <input
+            type='number'
+            ref={employeeSalary}
+            id='filterEmployeeSalary'
+            placeholder='120000'
+          />
+        </Column>
 
-        <input type='submit' onClick={submitFilters} value='Filter Employees' />
-      </form>
-    </div>
+        <Column>
+          <button type='submit' onClick={submitFilters} className='btn-sm btn-primary'>
+            Filter Employees
+          </button>
+        </Column>
+      </Row>
+    </form>
   );
 }
 

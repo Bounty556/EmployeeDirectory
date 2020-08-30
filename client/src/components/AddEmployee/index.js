@@ -3,8 +3,6 @@ import React, { useRef } from 'react';
 import Column from '../Column';
 import Row from '../Row';
 
-import './addEmployee.css';
-
 function AddEmployee(props) {
   const employeeName = useRef(null);
   const employeeOccupation = useRef(null);
